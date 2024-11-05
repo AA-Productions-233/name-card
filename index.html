@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paragraph</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Style+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aguafina+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=League+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Redacted+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mali&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+BE+WAL&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Qwigley&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: auto;
+            padding: auto;
+        }
+
+        #alert {
+            color: rgb(0, 0, 0);
+            height: 200px;
+            width: 450px;
+            color: red;
+            display: flex;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            background-color: white;
+            visibility: hidden;
+        }
+
+        #alert h1 {
+            margin: auto;
+            font-size: 13pt;
+            margin-right: 20px;
+            margin-left: 20px;
+        }
+
+        #alert button {
+            height: 45px;
+            width: 45px;
+            border: none;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 20pt;
+            font-stretch: extra-expanded;
+
+        }
+
+        #alert button:hover {
+            background-color: rgba(85, 83, 83, 0.609);
+        }
+
+        #message {
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+width: fit-content;
+height: fit-content;
+margin-top: 20px;
+        }
+
+
+        button:hover {
+            border-color: transparent;
+            background-color: blue;
+            color: white;
+        }
+
+        #message1 {
+            height: 50px;
+            width: 400px;
+            font-size: xx-large;
+            font-weight: bolder;
+        }
+
+        #shown {
+            margin: auto;
+            margin-top: 67px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 400px;
+            height: 200px;
+            border: 1px black solid;
+            font-size: xx-large;
+            font-weight: bolder;
+            overflow: auto;
+            white-space: normal;
+        }
+
+        #d-button {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid black;
+            width: 400px;
+            height: 60px;
+            text-align: center;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            border-radius: 12px;
+            margin-top: 10px;
+            overflow: hidden;
+            color: black;
+            background-color: white;
+            transition: color 0.4s ease;
+            z-index: 1;
+            /* Ensure the button has a higher z-index */
+        }
+
+        #d-button {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid black;
+            width: 204px;
+            height: 40px;
+            text-align: center;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            border-radius: 8px;
+            margin-top: 10px;
+            overflow: hidden;
+            color: black;
+            background-color: white;
+            transition: color 0.4s ease;
+            z-index: 1;
+            margin-top: 0px;
+            border-top: none;
+            border-radius: 0;
+        }
+
+        #d-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: blue;
+            transform: translateX(-100%);
+            transition: transform 0.4s ease;
+            z-index: -10;
+        }
+
+        #d-button:hover::before {
+            transform: translateX(0);
+        }
+
+        #d-button:hover {
+            color: white;
+            border-color: blue;
+        }
+
+        .buttons {
+         padding: 0px;
+         width: fit-content;
+         margin: auto   ;
+         display: grid;
+         grid-template-columns: 1fr 1fr;
+        }
+        .dld button{
+width: fit-content;
+height: fit-content;
+margin: auto;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="alert">
+        <h1>
+            Please! Enter a Valid value (at least of four characters)
+        </h1>
+        <button id="close" style="visibility: hidden;" onclick="close12()">X</button>
+    </div>
+    <div id="message">
+        <input type="text" id="message1" placeholder="Please Enter Your text">
+
+
+    </div>
+    <div class="buttons">
+            <button id="d-button" onclick="btnn()">Add color</button>
+            <button id="d-button" onclick="txtfont()">Try New Font</button>
+    </div>
+    <div id="shown">
+
+    </div>
+<div class="dld">   
+     <button id="d-button" style="width: 400px; margin-top: 10px; border: 1px solid black;" onclick="download()">Download</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script>
+
+        let a = document.getElementById("message1");
+        let b = document.getElementById("shown");
+        let d = document.getElementById("color");
+        const colors = ['white', "#FFDFBA", "#FFFFBA", "#BAFFC9", "#BAE1FF", "#FFC3A0", "#FF677D", "#D6E1F0", "#C2E9FB", "#FFABAB", "#FFD3B6", "#D4A5A5", "#392F5A", "#FFFB7D", "#D0E7FF", "#C3D5B9", "#E9AFA3", "#FCE3C5", "#FFE156", "#B4E0E8", "#FFEDC2", "#FFC1A1", "#B6E3D8", "#D6D3E2", "#E2C2D4", "#F6E58D", "#B2F0D5", "#F0E3D2", "#D5B9EA"];
+        let col = 0;
+        let alert1 = document.getElementById("alert");
+        let button = document.getElementById("close");
+        let c;
+        a.addEventListener('input', function () {
+            c = a.value;
+            b.innerText = c;
+
+        });
+
+        function btnn() {
+            b.style.backgroundColor = colors[col];
+
+            if (c.length >= 4) {
+                if (col == colors.length) {
+                    col = 0;
+                } else {
+                    col++;
+                }
+
+            } else {
+                col = 0;
+                b.innerText = null
+                alert1.style = "visibility: visible;"
+                button.style = "visibility: visible;"
+            }
+        }
+        function close12() {
+            button.style = "visibility: hidden;"
+            alert1.style = "visibility: hidden;"
+        }
+
+        function download() {
+            if (c.length >= 4) {
+                html2canvas(document.getElementById('shown')).then(canvas => {
+                    const link = document.createElement('a');
+                    link.href = canvas.toDataURL('image/png');
+                    link.download = 'div-image.png'; // Set the filename
+                    link.click(); // Trigger the download
+                }).catch(error => {
+                    console.error('Error capturing the element:', error);
+                });
+            } else {
+                alert1.style = "visibility: visible;"
+                button.style = "visibility: visible;"
+            }
+        }
+        const scriptFonts = [
+            "'Style Script', cursive",
+            "'Oleo Script Swash Caps', cursive",
+            "'Marck Script', cursive",
+            "'Petit Formal Script', cursive",
+            "'Aguafina Script', cursive",
+            "'League Script', cursive",
+            "'Redacted Script', cursive",
+            "'Playwrite GB S', cursive",
+            "'Reenie Beanie', cursive",
+            "'Mali', cursive",
+            "'Playwrite BE WAL', cursive",
+            "'Qwigley', cursive",
+            "'MonteCarlo', cursive"
+        ];
+
+        let font = 0;
+        function txtfont() {
+            if (scriptFonts.length == font) {
+                font = 0;
+
+
+            } else {
+                font += 1;
+
+            }
+            b.style.fontFamily = scriptFonts[font];
+        }
+    </script>
+</body>
+
+</html>
